@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Условия доставки и способы оплаты учебного интернет-магазина цветов.">
+  <title>Доставка и оплата — Учебный интернет-магазин</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" href="images/icon.png" type="image/png">
+  <script src="js/main.js" defer></script>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Учебный интернет-магазин">
+  <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
+  <meta property="og:image" content="https://menvika.github.io/kr1-html-css-shop/images/сatalog.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <svg class="icon-sprite" aria-hidden="true" focusable="false" style="display: none">
+    <symbol id="icon-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="21" r="1"></circle>
+      <circle cx="19" cy="21" r="1"></circle>
+      <path d="M2.5 3h2l2.4 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 7H6"></path>
+    </symbol>
+  </svg>
+  <header>
+    <div class="site-header">
+        <nav class="site-nav" aria-label="Основная навигация">
+          <a class="site-logo" href="index.html">FL</a>
+          <ul class="site-nav__list">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+            <li><a href="dostav.html">Доставка и оплата</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+            <li>
+              <button class="cart-button" type="button" id="header-basket" aria-label="Корзина">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+  </header>
+
+  <main>
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a href="index.html">Главная</a>
+      <span>/ Доставка и оплата</span>
+    </nav>
+
+    <section class="section">
+      <h1>Доставка и оплата</h1>
+      <p>
+        Собираем букет в течение часа после подтверждения заказа и доставляем
+        его по указанному адресу. Ниже — сроки, стоимость по зонам и доступные
+        способы оплаты.
+      </p>
+    </section>
+
+    <section class="section" id="delivery">
+      <h2>Зоны и сроки доставки</h2>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>В пределах города</h3>
+          <p>Доставим в течение 2–3 часов с момента подтверждения заказа, круглосуточно.</p>
+          <span class="info-card__price">от 600 руб.</span>
+        </div>
+    
+        <div class="info-card">
+          <h3>Пригород (до 20 км)</h3>
+          <p>Доставка в течение дня, время согласовывается с получателем заранее по телефону.</p>
+          <span class="info-card__price">от 1000 руб.</span>
+        </div>
+
+        <div class="info-card">
+          <h3>Самовывоз</h3>
+          <p>Заберите готовый букет из нашего шоу-рума в удобное время — сообщим, как только всё будет готово.</p>
+          <span class="info-card__price">бесплатно</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="payment">
+      <h2>Способы оплаты</h2>
+
+      <ul class="payment-methods">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+            <line x1="2" y1="10" x2="22" y2="10"></line>
+          </svg>
+          <div>
+            <h3>Банковской картой онлайн</h3>
+            <p>Оплата на сайте при оформлении заказа — Visa, Mastercard, МИР.</p>
+          </div>
+        </li>
+
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 9V7a5 5 0 0 0-10 0v2"></path>
+            <rect x="3" y="9" width="18" height="12" rx="2"></rect>
+          </svg>
+          <div>
+            <h3>Картой курьеру</h3>
+            <p>Оплата переносным терминалом прямо в момент доставки букета.</p>
+          </div>
+        </li>
+
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+          <div>
+            <h3>Наличными курьеру</h3>
+            <p>Расчёт наличными при получении заказа, сдача — без ограничений по сумме.</p>
+          </div>
+        </li>
+
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="3" width="16" height="18" rx="2"></rect>
+            <line x1="9" y1="8" x2="15" y2="8"></line>
+            <line x1="9" y1="12" x2="15" y2="12"></line>
+          </svg>
+          <div>
+            <h3>По счёту для организаций</h3>
+            <p>Выставляем счёт и закрывающие документы для юридических лиц.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section" id="faq">
+      <h2>Частые вопросы</h2>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Можно ли выбрать точное время доставки?</summary>
+          <p>Да, при оформлении заявки укажите желаемую дату и добавьте время в комментарии — мы согласуем его с курьером.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Что делать, если получателя нет дома?</summary>
+          <p>Курьер свяжется по указанному телефону, чтобы уточнить новое время или адрес доставки.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Можно ли сделать доставку анонимной?</summary>
+          <p>Да, эта услуга указана в разделе «Дополнительные услуги» на главной странице — получатель не узнает, от кого букет.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Как оформить возврат или обмен?</summary>
+          <p>Свяжитесь с нами через страницу «Контакты» в течение суток с момента доставки — поможем решить вопрос.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+  </footer>
+</body>
+</html>

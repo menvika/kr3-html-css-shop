@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Каталог товаров учебного интернет-магазина.">
+  <title>Каталог товаров — Учебный интернет-магазин</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" href="images/icon.png" type="image/png">
+  <script src="js/main.js" defer></script>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Учебный интернет-магазин">
+  <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
+  <meta property="og:image" content="https://menvika.github.io/kr1-html-css-shop/images/сatalog.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body data-page="catalog">
+  <svg class="icon-sprite" aria-hidden="true" focusable="false" style="display: none">
+    <symbol id="icon-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="21" r="1"></circle>
+      <circle cx="19" cy="21" r="1"></circle>
+      <path d="M2.5 3h2l2.4 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 7H6"></path>
+    </symbol>
+  </svg>
+  <header>
+    <div class="site-header">
+        <nav class="site-nav" aria-label="Основная навигация">
+          <a class="site-logo" href="index.html">FL</a>
+          <ul class="site-nav__list">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+            <li><a href="dostav.html">Доставка и оплата</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+            <li>
+              <button class="cart-button" type="button" aria-label="Корзина">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+  </header>
+
+  <main>
+    <main>
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a href="index.html">Главная</a>
+        <span>/ Каталог</span>  
+      </nav>
+    <section class="section">
+      <h1>Каталог товаров</h1>
+      <p>
+        На этой странице представлен учебный каталог товаров.
+        В дальнейшем здесь будут добавлены фильтры, сортировка и более
+        подробные карточки.
+      </p>
+    </section>
+
+    <section class="catalog-layout">
+      <aside class="catalog-filters">
+        <h2>Фильтры</h2>
+
+        <form class="filters-form" action="#" method="get">
+          <fieldset>
+            <legend>Категория</legend>
+
+            <label>
+              <input type="checkbox" name="category" value="all">
+              Все товары
+            </label>
+
+            <label>
+              <input type="checkbox" name="category" value="popular">
+              Популярные
+            </label>
+
+            <label>
+              <input type="checkbox" name="category" value="new">
+              Новинки
+            </label>
+            <label>
+              <input type="checkbox" name="category" value="type">
+              Моно-букеты
+            </label>
+            <label>
+              <input type="checkbox" name="category" value="basket">
+              Букеты в корзине
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Цена</legend>
+
+            <label for="price-from">От</label>
+            <input id="price-from" name="price-from" type="number" min="0" placeholder="0">
+
+            <label for="price-to">До</label>
+            <input id="price-to" name="price-to" type="number" min="0" placeholder="5000">
+          </fieldset>
+
+          <button class="button" type="submit">Применить</button>
+        </form>
+      </aside>
+
+      <section class="catalog-products">
+        <h2>Список товаров</h2>
+
+        <div class="products-grid">
+          <article class="product-card" data-title="Весенний букет" data-description="Букет из тюльпанов и нарциссов в нежной весенней палитре, отлично подходит для подарка на праздник или день рождения." data-price="7200 руб." data-image="images/fl1.jpg">
+            <img src="images/fl1.jpg" class="product-card__image" alt="Весенний букет">
+            <h3>Весенний букет</h3>
+            <p class="product-price">Цена: 7200 руб.</p>
+            <div class="product-card__actions">
+              <button class="button product-card__details" type="button">Подробнее</button>
+              <button class="cart-button" type="button" aria-label="Добавить в корзину">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Моно-букет" data-description="Пионы нежно-розового оттенка в премиальном оформлении — роскошный и очень стильный вариант для романтического подарка." data-price="8100 руб." data-image="images/fl2.jpg">
+            <img src="images/fl2.jpg" class="product-card__image" alt="Моно-букет">
+            <h3>Моно-букет</h3>
+            <p class="product-price">Цена: 8100 руб.</p>
+            <div class="product-card__actions">
+              <button class="button product-card__details" type="button">Подробнее</button>
+              <button class="cart-button" type="button" aria-label="Добавить в корзину">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Букет в корзине" data-description="Нежное ассорти в корзине — гармоничный микс цветов с уютной и элегантной подачей для любого случая." data-price="12700 руб." data-image="images/fl3.jpg">
+            <img src="images/fl3.jpg" class="product-card__image" alt="Букет в корзине">
+            <h3>Букет в корзине</h3>
+            <p class="product-price">Цена: 12700 руб.</p>
+            <div class="product-card__actions">
+              <button class="button product-card__details" type="button">Подробнее</button>
+              <button class="cart-button" type="button" aria-label="Добавить в корзину">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Розовый букет" data-description="Розовый букет из роз и пионов в классическом оформлении для торжественных событий, юбилеев и романтических сюрпризов." data-price="11500 руб." data-image="images/fl4.jpg">
+            <img src="images/fl4.jpg" class="product-card__image" alt="Розовый букет">
+            <h3>Розовый букет</h3>
+            <p class="product-price">Цена: 11500 руб.</p>
+            <div class="product-card__actions">
+              <button class="button product-card__details" type="button">Подробнее</button>
+              <button class="cart-button" type="button" aria-label="Добавить в корзину">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Дофаминовый букет" data-description="Ассорти из ярких и нежных цветов, которое поднимает настроение и выглядит эффектно как в интерьере, так и в руках у получателя." data-price="9000 руб." data-image="images/fl5.jpg">
+            <img src="images/fl5.jpg" class="product-card__image" alt="Дофаминовый букет">
+            <h3>Дофаминовый букет</h3>
+            <p class="product-price">Цена: 9000 руб.</p>
+            <div class="product-card__actions">
+              <button class="button product-card__details" type="button">Подробнее</button>
+              <button class="cart-button" type="button" aria-label="Добавить в корзину">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Моно-букет кустовых роз" data-description="Нежный моно-букет светло-розовых кустовых роз с лаконичной композицией и премиальной упаковкой." data-price="9500 руб." data-image="images/fl6.jpg">
+            <img src="images/fl6.jpg" class="product-card__image" alt="Моно-букет кустовых роз">
+            <h3>Моно-букет кустовых роз</h3>
+            <p class="product-price">Цена: 9500 руб.</p>
+            <div class="product-card__actions">
+              <button class="button product-card__details" type="button">Подробнее</button>
+              <button class="cart-button" type="button" aria-label="Добавить в корзину">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Букет альстромерий" data-description="Миниатюрный букет из альстромерий — лёгкий, воздушный и очень свежий вариант для подарка без излишеств." data-price="3500 руб." data-image="images/fl7.jpg">
+            <img src="images/fl7.jpg" class="product-card__image" alt="Букет альстромерий">
+            <h3>Букет альстромерий</h3>
+            <p class="product-price">Цена: 3500 руб.</p>
+            <div class="product-card__actions">
+              <button class="button product-card__details" type="button">Подробнее</button>
+              <button class="cart-button" type="button" aria-label="Добавить в корзину">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card" data-title="Ранунклюсы в корзине" data-description="Моно-букет ранункулюсов в корзине, созданный для элегантного подарка с акцентом на текстуру и объём цветка." data-price="20000 руб." data-image="images/fl8.jpg">
+            <img src="images/fl8.jpg" class="product-card__image" alt="Ранунклюсы в корзине">
+            <h3>Ранунклюсы в корзине</h3>
+            <p class="product-price">Цена: 20000 руб.</p>
+            <div class="product-card__actions">
+              <button class="button product-card__details" type="button">Подробнее</button>
+              <button class="cart-button" type="button" aria-label="Добавить в корзину">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">
+      <img class="toast__image" src="images/cat_toast1.gif" alt="">
+      <span class="toast__text" id="toast-text"></span>
+  </div>
+
+  <dialog class="product-dialog" id="product-dialog" aria-labelledby="product-dialog-title">
+    <div class="product-dialog__body">
+      <button class="dialog-close" type="button" id="close-product-dialog" aria-label="Закрыть">×</button>
+      <img class="product-dialog__image" id="product-dialog-image" src="" alt="">
+      <div class="product-dialog__content">
+        <p class="dialog-eyebrow">Букет</p>
+        <h2 id="product-dialog-title">Название букета</h2>
+        <p id="product-dialog-description"></p>
+        <div class="product-dialog__meta">
+          <strong id="product-dialog-price">0 руб.</strong>
+          <button class="cart-button" type="button" id="product-dialog-order" aria-label="Добавить в корзину">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+  
+  <footer>
+    <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+  </footer>
+</body>
+</html>

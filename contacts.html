@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Контактная информация учебного интернет-магазина.">
+  <title>Контакты — Учебный интернет-магазин</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" href="images/icon.png" type="image/png">
+  <script src="js/main.js" defer></script>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Учебный интернет-магазин">
+  <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
+  <meta property="og:image" content="https://menvika.github.io/kr1-html-css-shop/images/сatalog.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body data-page="contacts">
+  <svg class="icon-sprite" aria-hidden="true" focusable="false" style="display: none">
+    <symbol id="icon-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="21" r="1"></circle>
+      <circle cx="19" cy="21" r="1"></circle>
+      <path d="M2.5 3h2l2.4 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 7H6"></path>
+    </symbol>
+  </svg>
+  <header>
+    <div class="site-header">
+        <nav class="site-nav" aria-label="Основная навигация">
+          <a class="site-logo" href="index.html">FL</a>
+          <ul class="site-nav__list">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+            <li><a href="dostav.html">Доставка и оплата</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+            <li>
+              <button class="cart-button" type="button" id="header-basket"aria-label="Корзина">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+  </header>
+
+  <main>
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a href="index.html">Главная</a>
+      <span>/ Контакты</span>
+    </nav>
+
+    <section class="section">
+      <h1>Контакты</h1>
+      <p>
+        Свяжитесь с нами удобным способом — или оставьте заявку через форму
+        обратной связи, и мы перезвоним в течение рабочего дня.
+      </p>
+
+      <ul class="contact-list">
+        <li>
+          <span class="contact-list__label">Телефон</span>
+          <a href="tel:+79000000000">+7 (900) 000-00-00</a>
+        </li>
+        <li>
+          <span class="contact-list__label">Адрес</span>
+          г. Москва, учебный проект
+        </li>
+        <li>
+          <span class="contact-list__label">E-mail</span>
+          <a href="mailto:info@example.com">info@example.com</a>
+        </li>
+        <li>
+          <span class="contact-list__label">Часы работы</span>
+          ежедневно, 9:00–21:00
+        </li>
+        <li>
+          <span class="contact-list__label">Отдел корпоративных заказов</span>
+          <a href="mailto:corp@example.com">corp@example.com</a>
+        </li>
+        <li>
+          <span class="contact-list__label">Доставка</span>
+          Круглосуточно</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section" id="feedback">
+      <h2>Обратная связь</h2>
+      <p>
+        Есть вопрос по букету или хотите оформить заказ по телефону —
+        оставьте заявку, и мы свяжемся с вами сами.
+      </p>
+
+      <button type="button" class="button" id="open-order-dialog">Написать нам</button>
+    </section>
+  </main>
+
+  <dialog class="order-dialog" id="contact-order-dialog" aria-labelledby="contact-order-dialog-title">
+    <div class="order-dialog__body">
+      <button class="dialog-close" type="button" id="close-contact-order-dialog" aria-label="Закрыть">×</button>
+
+      <p class="dialog-eyebrow">Обратная связь</p>
+      <h2 id="contact-order-dialog-title">Оставить заявку</h2>
+      <p class="order-dialog__lead">Заполните форму — ответим по указанному телефону или почте.</p>
+
+      <form class="order-form" id="contact-order-form" action="#" method="post" novalidate>
+        <div class="form-field">
+          <label for="order-name">Имя</label>
+          <input id="order-name" name="name" type="text" placeholder="Введите ваше имя" minlength="2" autocomplete="given-name" required>
+        </div>
+
+        <div class="form-field">
+          <label for="order-email">E-mail</label>
+          <input id="order-email" name="email" type="email" placeholder="example@mail.ru" autocomplete="email" required>
+        </div>
+
+        <div class="form-field">
+          <label for="order-phone">Телефон</label>
+          <input id="order-phone" name="phone" type="tel" inputmode="tel" placeholder="+7 (900) 000-00-00" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" required>
+          <small>Формат: +7 (900) 000-00-00</small>
+        </div>
+
+        <div class="form-field">
+          <label for="order-date">Дата связи</label>
+          <input id="order-date" name="date" type="date">
+        </div>
+
+        <div class="form-field">
+          <label for="order-comment">Комментарий</label>
+          <textarea id="order-comment" name="comment" rows="4" placeholder="Укажите дополнительную информацию"></textarea>
+        </div>
+
+        <div class="form-field form-field--checkbox">
+          <label>
+            <input id="order-agreement" name="agreement" type="checkbox" required> Я согласен на обработку данных
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="button">Отправить заявку</button>
+        </div>
+      </form>
+    </div>
+     <div id="success-message" class="success-message" hidden>
+      <strong>Заявка успешно отправлена!</strong>
+      <p>Спасибо! Мы свяжемся с вами в ближайшее время.</p>
+    </div>
+  </dialog>
+
+  <footer>
+    <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+  </footer>
+</body>
+</html>
