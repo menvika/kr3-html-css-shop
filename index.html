@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Учебный интернет-магазин цветов</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"></noscript>
+    <link rel="preload" as="image" href="images/hero-640.webp" type="image/webp" media="(max-width: 767px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="images/hero-1200.webp" type="image/webp" media="(min-width: 768px)" fetchpriority="high" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="icon" href="images/icon.png" type="image/png" />
@@ -12,10 +17,10 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Учебный интернет-магазин цветов" />
     <meta property="og:description" content="Учебный frontend-проект интернет-магазина цветов." />
-    <meta property="og:image" content="https://menvika.github.io/kr1-html-css-shop/images/сatalog.jpg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
+    <meta property="og:image" content="https://menvika.github.io/kr3-responsive-shop/images/hero-1200.jpg">
+</head>
   <body>
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
     <svg class="icon-sprite" aria-hidden="true" focusable="false" style="display: none">
       <symbol id="icon-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="9" cy="21" r="1"></circle>
@@ -24,24 +29,26 @@
       </symbol>
     </svg>
     <header>
-      <div class="site-header">
-        <nav class="site-nav" aria-label="Основная навигация">
-          <a class="site-logo" href="index.html">FL</a>
-          <ul class="site-nav__list">
-            <li><a href="index.html">Главная</a></li>
+    <div class="site-header">
+      <nav class="site-nav" aria-label="Основная навигация">
+        <a class="site-logo" href="index.html" aria-label="FL — на главную">FL</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" hidden>
+          <span class="nav-toggle__bars" aria-hidden="true"></span>
+          <span>Меню</span>
+        </button>
+        <ul class="site-nav__list" id="site-menu">
+            <li><a href="index.html" aria-current="page">Главная</a></li>
             <li><a href="catalog.html">Каталог</a></li>
             <li><a href="dostav.html">Доставка и оплата</a></li>
             <li><a href="contacts.html">Контакты</a></li>
-            <li>
-              <button class="cart-button" type="button" id="header-basket" aria-label="Корзина">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
-              </button>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <main>
+        </ul>
+        <button class="cart-button cart-button--header" type="button" id="header-basket" aria-label="Корзина">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+    <main id="main" tabindex="-1">
       <section class="hero">
         <section class="hero-image">
           <div class="hero-content">
@@ -83,36 +90,45 @@
 
         <div class="products-grid">
           <article class="product-card">
-            <img src="images/fl1.jpg" class="product-card__image" alt="Весенний букет" />
+            <picture>
+              <source type="image/webp" srcset="images/fl1-400.webp 400w, images/fl1-640.webp 640w, images/fl1-654.webp 654w" sizes="(max-width: 599px) calc(100vw - 64px), (max-width: 899px) 45vw, 330px">
+              <img src="images/fl1-640.jpg" srcset="images/fl1-400.jpg 400w, images/fl1-640.jpg 640w, images/fl1-654.jpg 654w" sizes="(max-width: 599px) calc(100vw - 64px), (max-width: 899px) 45vw, 330px" class="product-card__image" alt="Весенний букет" width="654" height="872" loading="lazy">
+            </picture>
             <h3>Весенний букет</h3>
             <p class="product-price">Цена: 7200 руб.</p>
             <div class="product-card__actions"> 
-              <button class="button product-card__button" type="button" data-product="Весенний букет"> Подробнее </button> 
-              <button class="cart-button" type="button" aria-label="Корзина">
+              <button class="button product-card__button" aria-label="Подробнее: Весенний букет" type="button" data-product="Весенний букет"> Подробнее </button> 
+              <button class="cart-button" type="button" aria-label="Добавить в корзину: Весенний букет">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
               </button>
             </div>
           </article>
 
           <article class="product-card">
-            <img src="images/fl2.jpg" class="product-card__image" alt="Моно-букет" />
+            <picture>
+              <source type="image/webp" srcset="images/fl2-400.webp 400w, images/fl2-640.webp 640w, images/fl2-960.webp 960w, images/fl2-1052.webp 1052w" sizes="(max-width: 599px) calc(100vw - 64px), (max-width: 899px) 45vw, 330px">
+              <img src="images/fl2-640.jpg" srcset="images/fl2-400.jpg 400w, images/fl2-640.jpg 640w, images/fl2-960.jpg 960w, images/fl2-1052.jpg 1052w" sizes="(max-width: 599px) calc(100vw - 64px), (max-width: 899px) 45vw, 330px" class="product-card__image" alt="Моно-букет" width="1052" height="1402" loading="lazy">
+            </picture>
             <h3>Моно-букет</h3>
             <p class="product-price">Цена: 8100 руб.</p>
             <div class="product-card__actions"> 
-              <button class="button product-card__button" type="button" data-product="Моно-букет"> Подробнее </button> 
-             <button class="cart-button" type="button" aria-label="Корзина">
+              <button class="button product-card__button" aria-label="Подробнее: Моно-букет" type="button" data-product="Моно-букет"> Подробнее </button> 
+             <button class="cart-button" type="button" aria-label="Добавить в корзину: Моно-букет">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
               </button>
             </div>
           </article>
 
           <article class="product-card">
-            <img src="images/fl3.jpg" class="product-card__image" alt="Букет в корзине" />
+            <picture>
+              <source type="image/webp" srcset="images/fl3-400.webp 400w, images/fl3-640.webp 640w, images/fl3-900.webp 900w" sizes="(max-width: 599px) calc(100vw - 64px), (max-width: 899px) 45vw, 330px">
+              <img src="images/fl3-640.jpg" srcset="images/fl3-400.jpg 400w, images/fl3-640.jpg 640w, images/fl3-900.jpg 900w" sizes="(max-width: 599px) calc(100vw - 64px), (max-width: 899px) 45vw, 330px" class="product-card__image" alt="Букет в корзине" width="900" height="1200" loading="lazy">
+            </picture>
             <h3>Букет в корзине</h3>
             <p class="product-price">Цена: 12700 руб.</p>
             <div class="product-card__actions"> 
-              <button class="button product-card__button" type="button" data-product="Букет в корзине"> Подробнее </button> 
-              <button class="cart-button" type="button" aria-label="Корзина">
+              <button class="button product-card__button" aria-label="Подробнее: Букет в корзине" type="button" data-product="Букет в корзине"> Подробнее </button> 
+              <button class="cart-button" type="button" aria-label="Добавить в корзину: Букет в корзине">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
               </button>
             </div>
@@ -121,54 +137,56 @@
       </section>
 
       <div class="toast" id="toast" role="status" aria-live="polite">
-        <img class="toast__image" src="images/cat_toast1.gif" alt="">
+        <img class="toast__image" data-src="images/cat_toast1.gif" alt="">
         <span class="toast__text" id="toast-text"></span>
       </div>
 
       <section id="dopoln" class="section">
         <h2>Дополнительные услуги</h2>
 
-        <table class="services-table">
-          <thead>
-            <tr>
-              <th>Услуга</th>
-              <th>Описание</th>
-              <th>Цена</th>
+        <div class="table-wrapper">
+          <table class="services-table" role="table">
+          <thead role="rowgroup">
+            <tr role="row">
+              <th role="columnheader" scope="col">Услуга</th>
+              <th role="columnheader" scope="col">Описание</th>
+              <th role="columnheader" scope="col">Цена</th>
             </tr>
           </thead>
 
-          <tbody>
-            <tr>
-              <td>Персональная открытка</td>
-              <td>Мы напечатаем вашу подпись или послание на стильной открытке</td>
-              <td>500 ₽</td>
+          <tbody role="rowgroup">
+            <tr role="row">
+              <td role="cell" data-label="Услуга">Персональная открытка</td>
+              <td role="cell" data-label="Описание">Мы напечатаем вашу подпись или послание на стильной открытке</td>
+              <td role="cell" data-label="Цена">500 ₽</td>
             </tr>
 
-            <tr>
-              <td>Сладкий подарок</td>
-              <td>Добавим к букету конфеты, шоколад или десерт на ваш выбор</td>
-              <td>от 700 ₽</td>
+            <tr role="row">
+              <td role="cell" data-label="Услуга">Сладкий подарок</td>
+              <td role="cell" data-label="Описание">Добавим к букету конфеты, шоколад или десерт на ваш выбор</td>
+              <td role="cell" data-label="Цена">от 700 ₽</td>
             </tr>
 
-            <tr>
-              <td>Анонимная доставка</td>
-              <td>Получатель не узнает, от кого подарок - если вы не захотите</td>
-              <td>100 ₽</td>
+            <tr role="row">
+              <td role="cell" data-label="Услуга">Анонимная доставка</td>
+              <td role="cell" data-label="Описание">Получатель не узнает, от кого подарок - если вы не захотите</td>
+              <td role="cell" data-label="Цена">100 ₽</td>
             </tr>
 
-            <tr>
-              <td>Цветочная подписка</td>
-              <td>Регулярные доставки свежих букетов каждую неделю или месяц</td>
-              <td>от 2 500 ₽</td>
+            <tr role="row">
+              <td role="cell" data-label="Услуга">Цветочная подписка</td>
+              <td role="cell" data-label="Описание">Регулярные доставки свежих букетов каждую неделю или месяц</td>
+              <td role="cell" data-label="Цена">от 2 500 ₽</td>
             </tr>
           </tbody>
         </table>
+        </div>
       </section>
-
-      <footer>
-        <p>&copy; 2026 Учебный проект. Все права защищены.</p>
-        <p>Дисциплина: Фронтенд и бэкенд разработка</p>
-      </footer>
     </main>
+
+  <footer>
+    <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+  </footer>
   </body>
 </html>

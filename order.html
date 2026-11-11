@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Форма заявки на заказ букета: контакты, выбор букета и способ получения.">
+  <title>Оформление заявки — Учебный интернет-магазин</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"></noscript>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" href="images/icon.png" type="image/png">
+  <script src="js/main.js" defer></script>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Учебный интернет-магазин цветов">
+  <meta property="og:description" content="Учебный frontend-проект: адаптивная вёрстка и доступность.">
+  <meta property="og:image" content="https://menvika.github.io/kr3-responsive-shop/images/hero-1200.jpg">
+</head>
+<body data-page="order">
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+  <svg class="icon-sprite" aria-hidden="true" focusable="false" style="display: none">
+    <symbol id="icon-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="21" r="1"></circle>
+      <circle cx="19" cy="21" r="1"></circle>
+      <path d="M2.5 3h2l2.4 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 7H6"></path>
+    </symbol>
+  </svg>
+  <header>
+    <div class="site-header">
+      <nav class="site-nav" aria-label="Основная навигация">
+        <a class="site-logo" href="index.html" aria-label="FL — на главную">FL</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" hidden>
+          <span class="nav-toggle__bars" aria-hidden="true"></span>
+          <span>Меню</span>
+        </button>
+        <ul class="site-nav__list" id="site-menu">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+            <li><a href="dostav.html">Доставка и оплата</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+        <button class="cart-button cart-button--header" type="button" id="header-basket" aria-label="Корзина">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a href="index.html">Главная</a>
+      <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+      <span aria-current="page">Оформление заявки</span>
+    </nav>
+
+    <section class="order-page">
+      <h1>Оформление заявки</h1>
+      <p>
+        Заполните форму — мы подтвердим заказ по телефону или e-mail.
+        Обязательные поля отмечены звёздочкой
+        <span class="required-mark" aria-hidden="true">*</span>.
+      </p>
+
+      <form class="order-form order-form-page" id="order-form" action="#" method="post" novalidate>
+        <fieldset>
+          <legend>Контактные данные</legend>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="order-name">Имя <span class="required-mark" aria-hidden="true">*</span></label>
+              <input id="order-name" name="name" type="text" minlength="2" autocomplete="name" placeholder="Как к вам обращаться" required>
+            </div>
+            <div class="form-field">
+              <label for="order-phone">Телефон <span class="required-mark" aria-hidden="true">*</span></label>
+              <input id="order-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 900 000-00-00" pattern="^\+?[0-9\s\-\(\)]{10,18}$" title="Телефон: от 10 цифр, например +7 900 000-00-00" required>
+            </div>
+            <div class="form-field form-field--full">
+              <label for="order-email">E-mail</label>
+              <input id="order-email" name="email" type="email" autocomplete="email" placeholder="example@mail.ru">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Заказ</legend>
+          <div class="form-grid">
+            <div class="form-field form-field--full">
+              <label for="order-product">Букет <span class="required-mark" aria-hidden="true">*</span></label>
+              <select id="order-product" name="product" required>
+                <option value="">Выберите букет</option>
+              <option value="Весенний букет">Весенний букет — 7200 руб.</option>
+              <option value="Моно-букет">Моно-букет — 8100 руб.</option>
+              <option value="Букет в корзине">Букет в корзине — 12700 руб.</option>
+              <option value="Розовый букет">Розовый букет — 11500 руб.</option>
+              <option value="Дофаминовый букет">Дофаминовый букет — 9000 руб.</option>
+              <option value="Моно-букет кустовых роз">Моно-букет кустовых роз — 9500 руб.</option>
+              <option value="Букет альстромерий">Букет альстромерий — 3500 руб.</option>
+              <option value="Ранункулюсы в корзине">Ранункулюсы в корзине — 20000 руб.</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="order-qty">Количество <span class="required-mark" aria-hidden="true">*</span></label>
+              <input id="order-qty" name="qty" type="number" min="1" max="20" value="1" inputmode="numeric" required>
+            </div>
+            <div class="form-field">
+              <label for="order-date">Дата доставки <span class="required-mark" aria-hidden="true">*</span></label>
+              <input id="order-date" name="date" type="date" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Получение</legend>
+          <div class="form-grid">
+            <div class="form-field form-field--full">
+              <label class="choice"><input type="radio" name="delivery" value="courier" checked> Курьером по адресу</label>
+              <label class="choice"><input type="radio" name="delivery" value="pickup"> Самовывоз из шоу-рума</label>
+            </div>
+            <div class="form-field form-field--full" id="address-field">
+              <label for="order-address">Адрес доставки <span class="required-mark" aria-hidden="true">*</span></label>
+              <input id="order-address" name="address" type="text" autocomplete="street-address" placeholder="Город, улица, дом, квартира" required>
+            </div>
+            <div class="form-field form-field--full">
+              <label for="order-comment">Комментарий к заказу</label>
+              <textarea id="order-comment" name="comment" rows="4" placeholder="Текст открытки, пожелания по времени"></textarea>
+            </div>
+            <div class="form-field form-field--full form-field--checkbox">
+              <label for="order-agreement"><input id="order-agreement" name="agreement" type="checkbox" required> <span>Я согласен на обработку персональных данных <span class="required-mark" aria-hidden="true">*</span></span></label>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="submit" class="button">Отправить заявку</button>
+          <button type="reset" class="button button--outline">Очистить форму</button>
+        </div>
+        <div id="order-status" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+    <img class="toast__image" data-src="images/cat_toast1.gif" alt="" width="240" height="240">
+    <span class="toast__text" id="toast-text"></span>
+  </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+  </footer>
+</body>
+</html>

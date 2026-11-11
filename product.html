@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Моно-букет из нежно-розовых пионов: описание, характеристики и цены.">
+  <title>Моно-букет — Учебный интернет-магазин</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"></noscript>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" href="images/icon.png" type="image/png">
+  <script src="js/main.js" defer></script>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Учебный интернет-магазин цветов">
+  <meta property="og:description" content="Учебный frontend-проект: адаптивная вёрстка и доступность.">
+  <meta property="og:image" content="https://menvika.github.io/kr3-responsive-shop/images/hero-1200.jpg">
+</head>
+<body data-page="product">
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+  <svg class="icon-sprite" aria-hidden="true" focusable="false" style="display: none">
+    <symbol id="icon-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="21" r="1"></circle>
+      <circle cx="19" cy="21" r="1"></circle>
+      <path d="M2.5 3h2l2.4 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 7H6"></path>
+    </symbol>
+  </svg>
+  <header>
+    <div class="site-header">
+      <nav class="site-nav" aria-label="Основная навигация">
+        <a class="site-logo" href="index.html" aria-label="FL — на главную">FL</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" hidden>
+          <span class="nav-toggle__bars" aria-hidden="true"></span>
+          <span>Меню</span>
+        </button>
+        <ul class="site-nav__list" id="site-menu">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="catalog.html" aria-current="page">Каталог</a></li>
+            <li><a href="dostav.html">Доставка и оплата</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+        <button class="cart-button cart-button--header" type="button" id="header-basket" aria-label="Корзина">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a href="index.html">Главная</a>
+      <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+      <a href="catalog.html">Каталог</a>
+      <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+      <span aria-current="page">Моно-букет</span>
+    </nav>
+
+    <article class="section product-page">
+      <div class="product-page__media">
+        <picture>
+              <source type="image/webp" srcset="images/fl2-400.webp 400w, images/fl2-640.webp 640w, images/fl2-960.webp 960w, images/fl2-1052.webp 1052w" sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1023px) 45vw, 560px">
+              <img src="images/fl2-640.jpg" srcset="images/fl2-400.jpg 400w, images/fl2-640.jpg 640w, images/fl2-960.jpg 960w, images/fl2-1052.jpg 1052w" sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1023px) 45vw, 560px" class="product-page__image" alt="Моно-букет из нежно-розовых пионов в премиальной упаковке" width="1052" height="1402" fetchpriority="high">
+            </picture>
+      </div>
+
+      <div class="product-page__info">
+        <p class="dialog-eyebrow">Букет</p>
+        <h1>Моно-букет</h1>
+        <p class="product-page__price">8100 руб.</p>
+        <p>
+          Пионы нежно-розового оттенка в премиальном оформлении — роскошный
+          и очень стильный вариант для романтического подарка.
+        </p>
+        <ul class="advantages-list">
+          <li>свежие пионы, срез в день доставки;</li>
+          <li>доставка по городу за 2–3 часа;</li>
+          <li>открытка с вашим текстом по желанию.</li>
+        </ul>
+        <div class="product-page__actions">
+          <a class="button" href="order.html?product=%D0%9C%D0%BE%D0%BD%D0%BE-%D0%B1%D1%83%D0%BA%D0%B5%D1%82">Заказать</a>
+          <button class="cart-button" type="button" aria-label="Добавить в корзину: Моно-букет">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <section class="section" id="specs">
+      <h2>Характеристики</h2>
+      <p class="table-hint">На узком экране таблицу можно прокрутить по горизонтали.</p>
+      <div class="table-wrapper" role="region" aria-labelledby="specs-caption" tabindex="0">
+        <table class="product-table">
+          <caption id="specs-caption" class="visually-hidden">Варианты размера моно-букета</caption>
+          <thead>
+            <tr>
+              <th scope="col">Характеристика</th>
+              <th scope="col">Малый</th>
+              <th scope="col">Стандартный</th>
+              <th scope="col">Большой</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Количество пионов</th><td>11 шт.</td><td>21 шт.</td><td>35 шт.</td></tr>
+            <tr><th scope="row">Высота букета</th><td>35 см</td><td>45 см</td><td>55 см</td></tr>
+            <tr><th scope="row">Диаметр букета</th><td>20 см</td><td>28 см</td><td>36 см</td></tr>
+            <tr><th scope="row">Упаковка</th><td>крафт-бумага</td><td>крафт и атласная лента</td><td>премиальная бумага и лента</td></tr>
+            <tr><th scope="row">Свежесть после доставки</th><td>до 7 суток</td><td>до 7 суток</td><td>до 7 суток</td></tr>
+            <tr><th scope="row">Цена</th><td>4900 руб.</td><td>8100 руб.</td><td>12400 руб.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="similar">
+      <h2>Похожие букеты</h2>
+      <div class="products-grid">
+          <article class="product-card">
+            <picture>
+              <source type="image/webp" srcset="images/fl1-400.webp 400w, images/fl1-640.webp 640w, images/fl1-654.webp 654w" sizes="(max-width: 599px) calc(100vw - 64px), (max-width: 899px) 45vw, 330px">
+              <img src="images/fl1-640.jpg" srcset="images/fl1-400.jpg 400w, images/fl1-640.jpg 640w, images/fl1-654.jpg 654w" sizes="(max-width: 599px) calc(100vw - 64px), (max-width: 899px) 45vw, 330px" class="product-card__image" alt="Весенний букет" width="654" height="872" loading="lazy">
+            </picture>
+            <h3>Весенний букет</h3>
+            <p class="product-price">Цена: 7200 руб.</p>
+            <div class="product-card__actions">
+              <a class="button" href="product.html" aria-label="Подробнее: Весенний букет">Подробнее</a>
+              <button class="cart-button" type="button" aria-label="Добавить в корзину: Весенний букет">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <picture>
+              <source type="image/webp" srcset="images/fl3-400.webp 400w, images/fl3-640.webp 640w, images/fl3-900.webp 900w" sizes="(max-width: 599px) calc(100vw - 64px), (max-width: 899px) 45vw, 330px">
+              <img src="images/fl3-640.jpg" srcset="images/fl3-400.jpg 400w, images/fl3-640.jpg 640w, images/fl3-900.jpg 900w" sizes="(max-width: 599px) calc(100vw - 64px), (max-width: 899px) 45vw, 330px" class="product-card__image" alt="Букет в корзине" width="900" height="1200" loading="lazy">
+            </picture>
+            <h3>Букет в корзине</h3>
+            <p class="product-price">Цена: 12700 руб.</p>
+            <div class="product-card__actions">
+              <a class="button" href="product.html" aria-label="Подробнее: Букет в корзине">Подробнее</a>
+              <button class="cart-button" type="button" aria-label="Добавить в корзину: Букет в корзине">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <picture>
+              <source type="image/webp" srcset="images/fl4-400.webp 400w, images/fl4-640.webp 640w, images/fl4-960.webp 960w, images/fl4-1080.webp 1080w" sizes="(max-width: 599px) calc(100vw - 64px), (max-width: 899px) 45vw, 330px">
+              <img src="images/fl4-640.jpg" srcset="images/fl4-400.jpg 400w, images/fl4-640.jpg 640w, images/fl4-960.jpg 960w, images/fl4-1080.jpg 1080w" sizes="(max-width: 599px) calc(100vw - 64px), (max-width: 899px) 45vw, 330px" class="product-card__image" alt="Розовый букет" width="1080" height="1440" loading="lazy">
+            </picture>
+            <h3>Розовый букет</h3>
+            <p class="product-price">Цена: 11500 руб.</p>
+            <div class="product-card__actions">
+              <a class="button" href="product.html" aria-label="Подробнее: Розовый букет">Подробнее</a>
+              <button class="cart-button" type="button" aria-label="Добавить в корзину: Розовый букет">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
+              </button>
+            </div>
+          </article>
+      </div>
+    </section>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+    <img class="toast__image" data-src="images/cat_toast1.gif" alt="" width="240" height="240">
+    <span class="toast__text" id="toast-text"></span>
+  </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+  </footer>
+</body>
+</html>

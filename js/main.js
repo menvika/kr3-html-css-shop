@@ -8,6 +8,13 @@
     var toastText = document.getElementById("toast-text");
     if (!toast || !toastText) return;
 
+    // Гифка тоста подгружается только при первом показе, а не при загрузке страницы
+    var toastImage = toast.querySelector("img[data-src]");
+    if (toastImage) {
+      toastImage.src = toastImage.dataset.src;
+      toastImage.removeAttribute("data-src");
+    }
+
     toastText.textContent = message;
     toast.classList.add("is-visible");
 
@@ -161,10 +168,189 @@
   });
 }
 
+  /* ---------- КР №3: адаптивность и доступность ---------- */
+
+  // Мобильное меню (бургер). Без JS меню остаётся раскрытым списком ссылок.
+  function initNav() {
+    var nav = document.querySelector(".site-nav");
+    var toggle = nav && nav.querySelector(".nav-toggle");
+    var list = nav && nav.querySelector(".site-nav__list");
+    if (!toggle || !list) return;
+
+    toggle.hidden = false;
+    nav.classList.add("is-collapsible");
+
+    function setOpen(open) {
+      nav.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+    }
+
+    toggle.addEventListener("click", function () {
+      setOpen(toggle.getAttribute("aria-expanded") !== "true");
+    });
+
+    // Esc закрывает меню и возвращает фокус на кнопку
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+
+    // Клик вне меню закрывает его
+    document.addEventListener("click", function (event) {
+      if (!nav.contains(event.target)) setOpen(false);
+    });
+
+    // При переходе на планшет/desktop сбрасываем состояние
+    window.matchMedia("(min-width: 768px)").addEventListener("change", function () {
+      setOpen(false);
+    });
+  }
+
+  // Фильтр каталога: на мобильном свёрнут, на desktop всегда раскрыт
+  function initFiltersToggle() {
+    var details = document.querySelector(".filters-toggle");
+    if (!details) return;
+
+    var summary = details.querySelector("summary");
+    var mq = window.matchMedia("(min-width: 1024px)");
+
+    function sync() {
+      details.open = mq.matches;
+      if (summary) summary.tabIndex = mq.matches ? -1 : 0;
+    }
+
+    sync();
+    mq.addEventListener("change", sync);
+    details.addEventListener("toggle", function () {
+      if (mq.matches && !details.open) details.open = true;
+    });
+  }
+
+  // Сообщение об ошибке рядом с полем (связано через aria-describedby)
+  function showFieldError(field) {
+    var wrap = field.closest(".form-field");
+    if (!wrap) return;
+    var id = field.id + "-error";
+    var msg = document.getElementById(id);
+    if (!msg) {
+      msg = document.createElement("small");
+      msg.id = id;
+      msg.className = "field-error";
+      wrap.appendChild(msg);
+    }
+    msg.textContent = field.validationMessage;
+    field.setAttribute("aria-invalid", "true");
+    var base = field.dataset.describedby || "";
+    field.setAttribute("aria-describedby", (base + " " + id).trim());
+  }
+
+  function clearFieldError(field) {
+    field.removeAttribute("aria-invalid");
+    var msg = document.getElementById(field.id + "-error");
+    if (msg) msg.remove();
+    if (field.dataset.describedby) {
+      field.setAttribute("aria-describedby", field.dataset.describedby);
+    } else {
+      field.removeAttribute("aria-describedby");
+    }
+  }
+
+  function initOrderPage() {
+    var form = document.getElementById("order-form");
+    if (!form) return;
+
+    var status = document.getElementById("order-status");
+    var product = document.getElementById("order-product");
+    var date = document.getElementById("order-date");
+    var addressField = document.getElementById("address-field");
+    var address = document.getElementById("order-address");
+
+    // Не даём выбрать дату в прошлом
+    if (date) {
+      var now = new Date();
+      var iso = now.getFullYear() + "-" +
+        String(now.getMonth() + 1).padStart(2, "0") + "-" +
+        String(now.getDate()).padStart(2, "0");
+      date.min = iso;
+    }
+
+    // Предвыбор букета из ссылки order.html?product=...
+    var wanted = new URLSearchParams(window.location.search).get("product");
+    if (wanted && product) product.value = wanted;
+
+    // Адрес нужен только для доставки курьером
+    function syncDelivery() {
+      var pickup = form.elements.delivery.value === "pickup";
+      addressField.hidden = pickup;
+      address.disabled = pickup;
+      address.required = !pickup;
+      if (pickup) clearFieldError(address);
+    }
+    form.querySelectorAll('input[name="delivery"]').forEach(function (r) {
+      r.addEventListener("change", syncDelivery);
+    });
+    syncDelivery();
+
+    // Ошибка пропадает, как только поле исправлено
+    Array.from(form.elements).forEach(function (el) {
+      el.dataset.describedby = el.getAttribute("aria-describedby") || "";
+      el.addEventListener("input", function () {
+        if (el.getAttribute("aria-invalid") === "true" && el.checkValidity()) {
+          clearFieldError(el);
+        }
+      });
+    });
+
+    form.addEventListener("reset", function () {
+      Array.from(form.elements).forEach(function (el) {
+        if (el.id) clearFieldError(el);
+      });
+      status.textContent = "";
+      window.setTimeout(syncDelivery, 0);
+    });
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      status.textContent = "";
+
+      var firstInvalid = null;
+      Array.from(form.elements).forEach(function (el) {
+        if (!el.willValidate || !el.id) return;
+        if (el.checkValidity()) {
+          clearFieldError(el);
+        } else {
+          showFieldError(el);
+          if (!firstInvalid) firstInvalid = el;
+        }
+      });
+
+      if (firstInvalid) {
+        firstInvalid.focus();
+        return;
+      }
+
+      var name = form.elements.name.value.trim();
+      var text = "Спасибо, " + name + "! Заявка на «" + product.value +
+        "» (" + form.elements.qty.value + " шт.) принята — мы свяжемся с вами для подтверждения.";
+      // Сначала очищаем форму (reset сбрасывает и статус), затем показываем сообщение
+      form.reset();
+
+      var p = document.createElement("p");
+      p.className = "form-status";
+      p.textContent = text;
+      status.appendChild(p);
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initCartButtons();
     initProductDialog();
     initContactDialog();
     initFaq();
+    initNav();
+    initFiltersToggle();
+    initOrderPage();
   });
 })();

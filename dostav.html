@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Условия доставки и способы оплаты учебного интернет-магазина цветов.">
   <title>Доставка и оплата — Учебный интернет-магазин</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"></noscript>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="icon" href="images/icon.png" type="image/png">
@@ -13,10 +16,10 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Учебный интернет-магазин">
   <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
-  <meta property="og:image" content="https://menvika.github.io/kr1-html-css-shop/images/сatalog.jpg">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:image" content="https://menvika.github.io/kr3-responsive-shop/images/hero-1200.jpg">
 </head>
 <body>
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
   <svg class="icon-sprite" aria-hidden="true" focusable="false" style="display: none">
     <symbol id="icon-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="9" cy="21" r="1"></circle>
@@ -26,27 +29,30 @@
   </svg>
   <header>
     <div class="site-header">
-        <nav class="site-nav" aria-label="Основная навигация">
-          <a class="site-logo" href="index.html">FL</a>
-          <ul class="site-nav__list">
+      <nav class="site-nav" aria-label="Основная навигация">
+        <a class="site-logo" href="index.html" aria-label="FL — на главную">FL</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" hidden>
+          <span class="nav-toggle__bars" aria-hidden="true"></span>
+          <span>Меню</span>
+        </button>
+        <ul class="site-nav__list" id="site-menu">
             <li><a href="index.html">Главная</a></li>
             <li><a href="catalog.html">Каталог</a></li>
-            <li><a href="dostav.html">Доставка и оплата</a></li>
+            <li><a href="dostav.html" aria-current="page">Доставка и оплата</a></li>
             <li><a href="contacts.html">Контакты</a></li>
-            <li>
-              <button class="cart-button" type="button" id="header-basket" aria-label="Корзина">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
-              </button>
-            </li>
-          </ul>
-        </nav>
-      </div>
+        </ul>
+        <button class="cart-button cart-button--header" type="button" id="header-basket" aria-label="Корзина">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cart"></use></svg>
+        </button>
+      </nav>
+    </div>
   </header>
 
-  <main>
+  <main id="main" tabindex="-1">
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
       <a href="index.html">Главная</a>
-      <span>/ Доставка и оплата</span>
+      <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+      <span aria-current="page">Доставка и оплата</span>
     </nav>
 
     <section class="section">
