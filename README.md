@@ -108,9 +108,9 @@ kr3-responsive-shop/
 
 | Страница | Accessibility |
 |----------|---------------|
-| index.html | _ввести результат_ |
-| catalog.html | _ввести результат_ |
-| order.html | _ввести результат_ |
+| index.html | <img width="1551" height="916" alt="index" src="https://github.com/user-attachments/assets/418da091-a748-41d3-8e72-104e688d5d0a" /> |
+| catalog.html | <img width="1551" height="916" alt="catalog" src="https://github.com/user-attachments/assets/ed5c4fb0-026e-492f-83cf-a706d769fb9b" /> |
+| order.html |<img width="1551" height="916" alt="order" src="https://github.com/user-attachments/assets/3874723b-0ee1-45d3-ae8f-b045e4d1dde4" /> |
 
 ## Самостоятельная доработка
 
